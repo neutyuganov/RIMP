@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+address {
+  font-style: normal;
+}
+
+/* ===== Base ===== */
+
+.page {
+  font-family: "Rubik", sans-serif;
+  background-color: #e0e0e0;
+  color: #282828;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.resume {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 30px 40px;
+  overflow: hidden;
+}
+
+.resume-header {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.resume-header__title {
+  font-size: 48px;
+}
+
+.resume-header__title-surname {
+  margin-left: 48px;
+}
+
+.contacts {
+  margin-top: auto;
+  margin-left: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contacts__title {
+  font-size: 20px;
+}
+
+.contacts__list {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 16px;
+}
+
+.contacts__link {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  color: #515151;
+  text-decoration: none;
+}
+
+.contacts__icon {
+  width: 16px;
+  flex-shrink: 0;
+}
