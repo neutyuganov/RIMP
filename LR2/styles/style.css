@@ -28,17 +28,33 @@ address {
   background-color: #e0e0e0;
   color: #282828;
   min-height: 100vh;
-  padding: 40px 20px;
+  padding: 15px 20px;
 }
 
 .resume {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   background-color: #fff;
   border-radius: 12px;
-  padding: 30px 40px;
+  padding: 20px 30px;
   overflow: hidden;
 }
+
+/* ===== Main ===== */
+
+.resume-main {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.resume-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Header ==== */
 
 .resume-header {
   display: flex;
@@ -87,20 +103,6 @@ address {
 .contacts__icon {
   width: 16px;
   flex-shrink: 0;
-}
-
-/* ===== Main ===== */
-
-.resume-main {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.resume-info {
-  display: flex;
-  flex-direction: column;
 }
 
 /* ===== About ===== */
@@ -218,4 +220,84 @@ address {
 
 .education__city {
   font-weight: 300;
+}
+
+/* ===== Skills ===== */
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skills__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin-left: auto;
+}
+
+.skills__icon {
+  width: 34px;
+}
+
+.skills__title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.skills__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.skills__item {
+  padding: 16px 20px;
+  background-color: #fafafa;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.skills__item-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.skills__item-icon {
+  height: 50px;
+}
+
+.skills__item-title {
+  font-weight: 400;
+  line-height: 1.2;
+  font-size: 16px;
+}
+
+.skills__item-text {
+  font-weight: 300;
+  font-size: 16px;
+  color: #515151;
+  line-height: 1.3;
+}
+
+.skills__item-accent-design {
+  color: #8cc0d8;
+}
+
+.skills__item-accent-db {
+  color: #e6cf74;
+}
+
+.skills__item-accent-desktop {
+  color: #b296c9;
+}
+
+.skills__item-accent-android {
+  color: #96c99b;
 }
