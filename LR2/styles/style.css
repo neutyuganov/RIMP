@@ -42,12 +42,14 @@ address {
 
 .resume-header {
   display: flex;
-  gap: 24px;
+  gap: 60px;
   margin-bottom: 24px;
+  align-items: flex-end;
 }
 
 .resume-header__title {
   font-size: 48px;
+  font-weight: 500;
 }
 
 .resume-header__title-surname {
@@ -55,8 +57,6 @@ address {
 }
 
 .contacts {
-  margin-top: auto;
-  margin-left: 48px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -64,7 +64,7 @@ address {
 
 .contacts__title {
   font-size: 24px;
-  font-weight: 450;
+  font-weight: 500;
 }
 
 .contacts__list {
@@ -89,6 +89,22 @@ address {
   flex-shrink: 0;
 }
 
+/* ===== Main ===== */
+
+.resume-main {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.resume-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== About ===== */
+
 .about {
   display: flex;
   flex-direction: column;
@@ -96,9 +112,9 @@ address {
 }
 
 .about__header {
-  display: inline-flex;
-  gap: 10px;
+  display: flex;
   align-items: center;
+  gap: 10px;
   margin-left: 12px;
 }
 
@@ -108,12 +124,13 @@ address {
 
 .about__title {
   font-size: 24px;
-  font-weight: 450;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 .about__list {
   display: grid;
-  grid-template-columns: 110px auto;
+  grid-template-columns: 110px 1fr;
   column-gap: 12px;
   row-gap: 10px;
   align-items: start;
@@ -121,14 +138,84 @@ address {
 
 .about__label {
   text-align: right;
-  line-height: 20px;
-  font-weight: 400;
   font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
 }
 
 .about__value {
-  font-weight: 300;
-  color: #515151;
   font-size: 14px;
+  font-weight: 300;
   line-height: 20px;
+  color: #515151;
+}
+
+.about__trait-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* ===== Divider ===== */
+
+.resume-info__hr {
+  margin: 24px 0;
+  width: 100%;
+  max-width: 250px;
+  border: none;
+  height: 2px;
+  background-color: #515151;
+  border-radius: 999px;
+}
+
+/* ===== Education ===== */
+
+.education {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.education__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 12px;
+}
+
+.education__icon {
+  width: 34px;
+}
+
+.education__title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.education__list {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  column-gap: 14px;
+  row-gap: 24px;
+  align-items: start;
+  margin-left: 55px;
+}
+
+.education__period {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.education__place {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #515151;
+}
+
+.education__city {
+  font-weight: 300;
 }
