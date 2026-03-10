@@ -59,23 +59,25 @@ address {
   margin-left: 48px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .contacts__title {
-  font-size: 20px;
+  font-size: 24px;
+  font-weight: 450;
 }
 
 .contacts__list {
   margin-left: 20px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   font-size: 16px;
 }
 
 .contacts__link {
   display: inline-flex;
+  font-weight: 400;
   gap: 6px;
   align-items: center;
   color: #515151;
@@ -85,4 +87,48 @@ address {
 .contacts__icon {
   width: 16px;
   flex-shrink: 0;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about__header {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.about__icon {
+  width: 34px;
+}
+
+.about__title {
+  font-size: 24px;
+  font-weight: 450;
+}
+
+.about__list {
+  display: grid;
+  grid-template-columns: 110px auto;
+  column-gap: 12px;
+  row-gap: 10px;
+  align-items: start;
+}
+
+.about__label {
+  text-align: right;
+  line-height: 20px;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.about__value {
+  font-weight: 300;
+  color: #515151;
+  font-size: 14px;
+  line-height: 20px;
 }
