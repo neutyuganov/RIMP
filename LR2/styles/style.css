@@ -44,7 +44,7 @@ address {
 
 .resume-main {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 350px 1fr;
   gap: 40px;
   align-items: start;
 }
@@ -58,7 +58,7 @@ address {
 
 .resume-header {
   display: flex;
-  gap: 60px;
+  gap: 95px;
   margin-bottom: 24px;
   align-items: flex-end;
 }
@@ -146,7 +146,7 @@ address {
 }
 
 .about__value {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 20px;
   color: #515151;
@@ -200,7 +200,7 @@ address {
   grid-template-columns: 52px 1fr;
   column-gap: 14px;
   row-gap: 24px;
-  align-items: start;
+  align-items: center;
   margin-left: 55px;
 }
 
@@ -212,7 +212,7 @@ address {
 }
 
 .education__place {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 20px;
   color: #515151;
@@ -276,14 +276,14 @@ address {
 .skills__item-title {
   font-weight: 400;
   line-height: 1.2;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .skills__item-text {
   font-weight: 300;
-  font-size: 16px;
+  font-size: 18px;
   color: #515151;
-  line-height: 1.3;
+  line-height: 1.5;
 }
 
 .skills__item-accent-design {
@@ -300,4 +300,32 @@ address {
 
 .skills__item-accent-android {
   color: #96c99b;
+}
+
+.skills__item-desktop {
+  background-image: url("../image/bg_desktop_ic.svg");
+  background-repeat: no-repeat;
+  background-position: right -80px center;
+  background-size: 200px;
+}
+
+.skills__item-android {
+  background-image: url("../image/bg_mobile_ic.svg");
+  background-repeat: no-repeat;
+  background-position: right -30px center;
+  background-size: 110px;
+}
+
+.skills__item-db {
+  background-image: url("../image/bg_db_ic.svg");
+  background-repeat: no-repeat;
+  background-position: right -50px center;
+  background-size: 160px;
+}
+
+.skills__item-design {
+  background-image: url("../image/bg_design_ic.svg");
+  background-repeat: no-repeat;
+  background-position: right -60px center;
+  background-size: 170px;
 }
