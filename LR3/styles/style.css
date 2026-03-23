@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sprite-main {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1200px;
+  justify-content: space-between;
+  background-color: antiquewhite;
+}
+
+.sprite-item {
+  display: flex; /* Включаем Flexbox */
+  flex-direction: column; /* Располагаем элементы в колонку */
+
+  align-items: center;
+}
+
+.sprite-hover__image {
+  width: 177px;
+  height: 64px;
+  background-image: url("../images/Pinguins_sprite.png");
+  background-position: -9px -2731px;
+  image-rendering: pixelated;
+}
+
+.sprite-hover__image:hover {
+  background-position: -196px -2731px;
+}
+
+.sprite-linear__image {
+  width: 100px;
+  height: 70px;
+  background-image: url("../images/Pinguins_sprite.png");
+  background-position: -5px -120x;
+  image-rendering: pixelated;
+  animation: linear-play 1s steps(8) infinite;
+}
+
+@keyframes linear-play {
+  from {
+    background-position: -5px -120px;
+  }
+  to {
+    background-position: -845px -120px;
+  }
+}
+
+.sprite-array__image {
+  width: 191px;
+  height: 140px;
+  background-image: url("../images/Dino.png");
+  image-rendering: pixelated;
+  animation:
+    matrix-x 0.7s steps(4) infinite,
+    matrix-y 2.8s steps(6) infinite;
+}
+
+@keyframes matrix-x {
+  from {
+    background-position-x: -3px;
+  }
+  to {
+    background-position-x: -778px;
+  } /* 98px × 7 */
+}
+
+@keyframes matrix-y {
+  from {
+    background-position-y: -1px;
+  }
+  to {
+    background-position-y: -840px;
+  } /* 95px × 5 + 1266 */
+}
