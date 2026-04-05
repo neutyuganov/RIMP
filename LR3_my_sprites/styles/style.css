@@ -16,6 +16,9 @@ body {
   position: relative;
   width: 500px;
   height: 200px;
+  margin-left: 600px;
+  transform: scale(2); /* увеличь или уменьши это число */
+  transform-origin: center center;
 }
 
 /* ===== Z-INDEX ===== */
@@ -60,181 +63,250 @@ body {
   opacity: 0;
 }
 
-/* ===== СУМКА: въезжает слева ===== */
+/* ===== СУМКА ===== */
 .bag {
-  animation: bag-appear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: bag-appear 13s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
 }
+
 @keyframes bag-appear {
-  from {
+  0% {
     transform: translateX(-200px);
     opacity: 0;
   }
-  to {
+  6% {
     transform: translateX(0);
     opacity: 1;
-  }
+  } /* въехала */
+  85% {
+    transform: translateX(0);
+    opacity: 1;
+  } /* стоит */
+  92% {
+    transform: translateX(0);
+    opacity: 1;
+  } /* начинает улетать */
+  100% {
+    transform: translateX(200px);
+    opacity: 0;
+  } /* улетела вправо */
 }
 
-/* ===== ТЕТРАДЬ: падает сверху ===== */
-/* Сначала скрыта, оценка тоже скрыта */
+/* ===== ТЕТРАДЬ ===== */
 .notebook {
-  animation: nb-appear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 1s;
+  animation: nb-appear 13s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
 }
 @keyframes nb-appear {
-  from {
+  0% {
     transform: translateY(-120px);
     opacity: 0;
-  }
-  to {
+  } /* за экраном */
+  7% {
+    transform: translateY(-120px);
+    opacity: 0;
+  } /* ждёт невидимой */
+  8% {
+    transform: translateY(-120px);
+    opacity: 0;
+  } /* появляется вверху */
+  13% {
     transform: translateY(0);
     opacity: 1;
-  }
-}
-
-/* Черта рисуется через stroke-dashoffset */
-.grade-line {
-  stroke-dasharray: 50;
-  stroke-dashoffset: 50;
-  animation: draw-line 0.6s ease forwards 2s;
-}
-@keyframes draw-line {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-/* Цифра 5 появляется */
-.grade-5 {
-  stroke-dasharray: 80;
-  stroke-dashoffset: 80;
-  animation: draw-5 0.8s ease forwards 2.6s;
-}
-@keyframes draw-5 {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-/* Тетрадь улетает в сумку */
-.notebook {
-  animation:
-    nb-appear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 1s,
-    nb-fly-away 0.7s cubic-bezier(0.4, 0, 1, 1) forwards 4s;
-}
-@keyframes nb-fly-away {
-  from {
-    transform: translate(0, 0) scale(1);
+  } /* падает вниз */
+  30% {
+    transform: translateY(0) scale(1);
     opacity: 1;
   }
-  to {
+  40% {
+    transform: translate(-100px, 30px) scale(0.3);
+    opacity: 0;
+  }
+  100% {
     transform: translate(-100px, 30px) scale(0.3);
     opacity: 0;
   }
 }
 
-/* ===== ЯБЛОКО: выпрыгивает вверх ===== */
-.apple {
-  animation:
-    apple-up 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 5.5s,
-    apple-bite 0.3s ease forwards 6.5s,
-    apple-down 0.5s cubic-bezier(0.4, 0, 1, 1) forwards 7.5s;
+/* ===== ЧЕРТА НА ТЕТРАДИ ===== */
+.grade-line {
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  animation: draw-line 13s ease infinite;
 }
-@keyframes apple-up {
-  from {
+@keyframes draw-line {
+  0% {
+    stroke-dashoffset: 50;
+  }
+  15% {
+    stroke-dashoffset: 50;
+  } /* ждёт */
+  20% {
+    stroke-dashoffset: 0;
+  } /* рисуется */
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ===== ЦИФРА 5 ===== */
+.grade-5 {
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80;
+  animation: draw-5 13s ease infinite;
+}
+@keyframes draw-5 {
+  0% {
+    stroke-dashoffset: 80;
+  }
+  20% {
+    stroke-dashoffset: 80;
+  }
+  26% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ===== ЯБЛОКО ===== */
+.apple {
+  animation: apple-full 13s ease-in-out infinite;
+}
+@keyframes apple-full {
+  0% {
     transform: translateY(0);
     opacity: 0;
   }
-  to {
+  40% {
+    transform: translateY(0);
+    opacity: 0;
+  } /* ждёт */
+  43% {
     transform: translateY(-110px);
     opacity: 1;
-  }
-}
-/* Откусывание — яблоко чуть дёргается */
-@keyframes apple-bite {
-  0% {
-    transform: translateY(-110px) rotate(0deg);
-  }
-  30% {
+  } /* вылетает */
+
+  /* Укус — было 48/52/55, стало 44/45/46 = в 3 раза быстрее */
+  44% {
     transform: translateY(-115px) rotate(-15deg);
-  }
-  60% {
-    transform: translateY(-105px) rotate(10deg);
-  }
-  100% {
-    transform: translateY(-110px) rotate(0deg);
-  }
-}
-@keyframes apple-down {
-  from {
-    transform: translateY(-110px);
     opacity: 1;
   }
-  to {
+  45% {
+    transform: translateY(-105px) rotate(10deg);
+    opacity: 1;
+  }
+  46% {
+    transform: translateY(-110px) rotate(0deg);
+    opacity: 1;
+  }
+
+  55% {
+    transform: translateY(10px);
+    opacity: 0;
+  } /* падает */
+  100% {
     transform: translateY(10px);
     opacity: 0;
   }
 }
 
-/* Откус появляется пока яблоко трясётся */
+/* ===== ОТКУС ===== */
 .apple-bite-chunk {
   opacity: 0;
-  animation: show-chunk 1.5s ease forwards 6.5s;
+  animation: show-chunk 13s ease infinite;
 }
 @keyframes show-chunk {
   0% {
     opacity: 0;
   }
-  10% {
+  44% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 1;
+  } /* появляется во время укуса */
+  59% {
     opacity: 1;
   }
-  80% {
-    opacity: 1;
+  61% {
+    opacity: 0;
   }
   100% {
     opacity: 0;
   }
 }
 
-/* ===== КЕЙС: выпрыгивает вверх, мигает огонёк ===== */
+/* ===== КЕЙС ===== */
 .airpods {
-  animation:
-    airpods-up 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 9s,
-    airpods-down 0.5s cubic-bezier(0.4, 0, 1, 1) forwards 11s;
+  animation: airpods-full 13s ease-in-out infinite;
 }
-@keyframes airpods-up {
-  from {
+@keyframes airpods-full {
+  0% {
     transform: translateY(0);
     opacity: 0;
   }
-  to {
+  65% {
+    transform: translateY(0);
+    opacity: 0;
+  } /* ждёт */
+  69% {
     transform: translateY(-90px);
     opacity: 1;
-  }
-}
-@keyframes airpods-down {
-  from {
+  } /* вылетает */
+  83% {
     transform: translateY(-90px);
     opacity: 1;
-  }
-  to {
+  } /* висит */
+  88% {
+    transform: translateY(10px);
+    opacity: 0;
+  } /* уходит */
+  100% {
     transform: translateY(10px);
     opacity: 0;
   }
 }
 
-/* Зелёный огонёк мигает */
+/* ===== ОГОНЁК ===== */
 .led {
-  animation: led-blink 0.6s ease-in-out infinite 9.5s;
+  animation: led-blink 13s ease-in-out infinite;
 }
 @keyframes led-blink {
-  0%,
-  100% {
-    opacity: 1;
-    r: 1;
+  0% {
+    opacity: 0;
   }
-  50% {
+  69% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  71% {
     opacity: 0.1;
-    r: 3;
+  }
+  72% {
+    opacity: 1;
+  }
+  73% {
+    opacity: 0.1;
+  }
+  74% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.1;
+  }
+  76% {
+    opacity: 1;
+  }
+  83% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
